@@ -11,6 +11,7 @@ export const publicAsset = (path: string) =>
 export const site = {
   name: 'Sandaruwan Weerawardhana',
   firstName: 'Sandaruwan',
+  lastName: 'Weerawardhana',
   role: 'FullStack Developer',
   /** Rotating titles shown in the hero. */
   titles: ['Full Stack Developer', 'Software Engineer', 'Frontend Developer'],

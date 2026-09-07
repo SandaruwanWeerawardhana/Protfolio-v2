@@ -25,12 +25,12 @@ export function Logo({ className, compact = false }: LogoProps) {
 
       <span
         className={cn(
-          'font-display text-base font-semibold leading-tight text-content-primary',
+          'whitespace-nowrap font-display text-base font-semibold leading-tight text-content-primary',
           compact && 'hidden sm:block',
         )}
       >
         {site.firstName}
-        <span className="text-content-subtle">.dev</span>
+        <span className="text-content-subtle"> {site.lastName}</span>
       </span>
     </Link>
   );
