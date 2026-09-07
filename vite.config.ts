@@ -54,7 +54,7 @@ export default defineConfig({
         manualChunks: {
           vendor: ["react", "react-dom"],
           animations: ["framer-motion"],
-          icons: ["lucide-react", "react-icons"],
+          icons: ["lucide-react"],
         },
       },
     },
