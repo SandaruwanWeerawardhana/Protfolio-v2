@@ -19,6 +19,33 @@ const runWhenIdle = (callback: () => void) => {
 };
 
 /**
+ * Reports the first time each section scrolls into view.
+ * Returns a disconnect function, or undefined when there is nothing to observe.
+ */
+const observeSections = (): (() => void) | undefined => {
+  const sections = document.querySelectorAll('section[id]');
+  if (!sections.length) return undefined;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        if (!entry.isIntersecting) continue;
+
+        const sectionId = entry.target.getAttribute('id');
+        if (sectionId) {
+          trackEvent('section_visible', { section: sectionId });
+          observer.unobserve(entry.target);
+        }
+      }
+    },
+    { threshold: 0.3 },
+  );
+
+  sections.forEach((section) => observer.observe(section));
+  return () => observer.disconnect();
+};
+
+/**
  * Reports load timing and one-off section-visibility events.
  * All work is deferred to idle time to keep the main thread free.
  */
@@ -39,25 +66,7 @@ export function SpeedInsightsProvider({ children }: SpeedInsightsProviderProps) 
 
     // Sections mount after the first paint, so wait for idle before observing.
     runWhenIdle(() => {
-      const sections = document.querySelectorAll('section[id]');
-      if (!sections.length) return;
-
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (!entry.isIntersecting) return;
-            const sectionId = entry.target.getAttribute('id');
-            if (sectionId) {
-              trackEvent('section_visible', { section: sectionId });
-              observer.unobserve(entry.target);
-            }
-          });
-        },
-        { threshold: 0.3 },
-      );
-
-      sections.forEach((section) => observer.observe(section));
-      disconnectSections = () => observer.disconnect();
+      disconnectSections = observeSections();
     });
 
     return () => disconnectSections?.();

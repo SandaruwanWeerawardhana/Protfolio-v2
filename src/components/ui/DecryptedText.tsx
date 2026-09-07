@@ -1,3 +1,5 @@
+/* eslint-disable sonarjs/pseudo-random -- Math.random only shuffles the decorative
+   character scramble below; nothing security or fairness related depends on it. */
 import { useEffect, useRef, useState } from 'react';
 import { useReducedMotion } from 'framer-motion';
 
@@ -41,7 +43,7 @@ export default function DecryptedText({
   const prefersReducedMotion = useReducedMotion();
 
   useEffect(() => {
-    let interval: NodeJS.Timeout | undefined;
+    let interval: ReturnType<typeof setInterval> | undefined;
     let currentIteration = 0;
 
     const getNextIndex = (revealedSet: Set<number>): number => {
@@ -109,7 +111,10 @@ export default function DecryptedText({
         .map((p) => {
         if (p.isSpace) return ' ';
         if (p.isRevealed) return originalText[p.index];
-        return nonSpaceChars[charIndex++];
+
+        const shuffledChar = nonSpaceChars[charIndex];
+        charIndex += 1;
+        return shuffledChar;
         })
         .join('');
       } else {

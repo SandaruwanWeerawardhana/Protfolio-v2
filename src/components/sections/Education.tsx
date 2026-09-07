@@ -1,5 +1,6 @@
 import { Award, GraduationCap } from 'lucide-react';
 import { certifications, education } from '../../data/education';
+import { spotlight } from '../../lib/spotlight';
 import { Reveal, Stagger, StaggerItem } from '../animations';
 import CertificationCard from '../cards/CertificationCard';
 import TimelineItem from '../cards/TimelineItem';
@@ -27,7 +28,7 @@ export function Education() {
             </h3>
           </div>
 
-          <SpotlightCard className="surface p-6 sm:p-8" spotlightColor="rgba(56, 189, 248, 0.14)">
+          <SpotlightCard className="surface p-6 sm:p-8" spotlightColor={spotlight.skySoft}>
             <ol className="relative">
               {education.map((item, index) => (
                 <TimelineItem

@@ -1,10 +1,9 @@
 import { skillCategories } from '../../data/skills';
+import { spotlightCycle } from '../../lib/spotlight';
 import { Stagger, StaggerItem } from '../animations';
 import SkillCategoryCard from '../cards/SkillCategoryCard';
 import Section from '../ui/Section';
 import SectionHeading from '../ui/SectionHeading';
-
-const spotlightColors = ['rgba(56, 189, 248, 0.16)', 'rgba(139, 92, 246, 0.16)'];
 
 export function Skills() {
   return (
@@ -20,7 +19,7 @@ export function Skills() {
           <StaggerItem key={category.title} className="h-full">
             <SkillCategoryCard
               category={category}
-              spotlightColor={spotlightColors[index % spotlightColors.length]}
+              spotlightColor={spotlightCycle[index % spotlightCycle.length]}
             />
           </StaggerItem>
         ))}

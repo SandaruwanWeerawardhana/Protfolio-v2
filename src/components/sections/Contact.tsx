@@ -1,5 +1,6 @@
 import { Mail, MapPin, Sparkles } from 'lucide-react';
 import { site, socialLinks } from '../../data/site';
+import { spotlight } from '../../lib/spotlight';
 import { Reveal } from '../animations';
 import ContactForm from '../forms/ContactForm';
 import IconLink from '../ui/IconLink';
@@ -21,7 +22,7 @@ export function Contact() {
         <Reveal direction="right" className="lg:col-span-2">
           <SpotlightCard
             className="surface h-full p-6 sm:p-8"
-            spotlightColor="rgba(56, 189, 248, 0.14)"
+            spotlightColor={spotlight.skySoft}
           >
             <h3 className="font-display text-lg font-semibold text-content-primary sm:text-xl">
               Contact Information
@@ -79,7 +80,7 @@ export function Contact() {
         <Reveal direction="left" delay={0.1} className="lg:col-span-3">
           <SpotlightCard
             className="surface h-full p-6 sm:p-8"
-            spotlightColor="rgba(139, 92, 246, 0.14)"
+            spotlightColor={spotlight.violetSoft}
           >
             <h3 className="mb-6 font-display text-lg font-semibold text-content-primary sm:text-xl">
               Send Me a Message

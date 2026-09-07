@@ -1,6 +1,6 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import { resolve } from "path";
+import { fileURLToPath } from "node:url";
 import { VitePWA } from "vite-plugin-pwa";
 
 export default defineConfig({
@@ -62,7 +62,7 @@ export default defineConfig({
   // Add path aliases for cleaner imports
   resolve: {
     alias: {
-      "@": resolve(__dirname, "./src"),
+      "@": fileURLToPath(new URL("./src", import.meta.url)),
     },
   },
 });

@@ -1,6 +1,7 @@
 import { useCallback, useRef } from 'react';
 import type { CSSProperties, PointerEvent as ReactPointerEvent, ReactNode, Ref } from 'react';
 import { cn } from '../../lib/cn';
+import { spotlight } from '../../lib/spotlight';
 
 interface SpotlightCardProps {
   children: ReactNode;
@@ -20,7 +21,7 @@ interface SpotlightCardProps {
 export function SpotlightCard({
   children,
   className,
-  spotlightColor = 'rgba(56, 189, 248, 0.16)',
+  spotlightColor = spotlight.sky,
   contentClassName,
   as: Tag = 'div',
 }: SpotlightCardProps) {

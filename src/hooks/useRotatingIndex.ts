@@ -1,5 +1,8 @@
 import { useEffect, useState } from 'react';
 
+/** State updater that wraps around the end of the list. */
+const advance = (length: number) => (previous: number) => (previous + 1) % length;
+
 /**
  * Cycles through indices of a list on an interval.
  * Pauses while the tab is hidden so background tabs stay idle.
@@ -12,10 +15,10 @@ export function useRotatingIndex(length: number, intervalMs = 2600): number {
 
     let timer: number | undefined;
 
+    const tick = () => setIndex(advance(length));
+
     const start = () => {
-      timer = window.setInterval(() => {
-        setIndex((previous) => (previous + 1) % length);
-      }, intervalMs);
+      timer = window.setInterval(tick, intervalMs);
     };
 
     const stop = () => {

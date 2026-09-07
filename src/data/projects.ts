@@ -1,3 +1,4 @@
+import { spotlight } from '../lib/spotlight';
 import type { Project } from '../types';
 
 export const projects: Project[] = [
@@ -16,7 +17,7 @@ export const projects: Project[] = [
       github: 'https://github.com/SandaruwanWeerawardhana/SoloRent-Frontend.git',
     },
     featured: true,
-    spotlightColor: 'rgba(56, 189, 248, 0.16)',
+    spotlightColor: spotlight.sky,
   },
   {
     title: 'Whatsapp Chat Bot',
@@ -32,7 +33,7 @@ export const projects: Project[] = [
     links: {
       github: 'https://github.com/SandaruwanWeerawardhana/Whatapp-bot.git',
     },
-    spotlightColor: 'rgba(139, 92, 246, 0.16)',
+    spotlightColor: spotlight.violet,
   },
   {
     title: 'Feedback Management System',
@@ -48,7 +49,7 @@ export const projects: Project[] = [
     links: {
       github: 'https://github.com/SandaruwanWeerawardhana/Feedback-Management-System-frontend.git',
     },
-    spotlightColor: 'rgba(56, 189, 248, 0.16)',
+    spotlightColor: spotlight.sky,
   },
   {
     title: 'Hospital Management POS System',
@@ -64,7 +65,7 @@ export const projects: Project[] = [
     links: {
       github: 'https://github.com/SandaruwanWeerawardhana/Hospital-Management-System.git',
     },
-    spotlightColor: 'rgba(139, 92, 246, 0.16)',
+    spotlightColor: spotlight.violet,
   },
   {
     title: 'MOS Burgers Web POS System',
@@ -80,6 +81,6 @@ export const projects: Project[] = [
     links: {
       github: 'https://github.com/SandaruwanWeerawardhana/mos-frontend.git',
     },
-    spotlightColor: 'rgba(56, 189, 248, 0.16)',
+    spotlightColor: spotlight.sky,
   },
 ];
