@@ -15,8 +15,8 @@ export function HomePage() {
     <>
       <Hero />
       <Skills />
-      <Education />
       <Projects />
+      <Education />
       <Contact />
     </>
   );
