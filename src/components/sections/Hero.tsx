@@ -1,4 +1,4 @@
-import { ChevronDown, Briefcase, FileText } from 'lucide-react';
+import { ChevronDown} from 'lucide-react';
 import { Link } from 'react-scroll';
 import profilePng from '../../assets/profile.png';
 import profileWebp from '../../assets/profile.webp';
@@ -6,10 +6,7 @@ import { heroStats, site, socialLinks } from '../../data/site';
 import { useAnalytics } from '../../hooks/useAnalytics';
 import { useInViewOnce } from '../../hooks/useInViewOnce';
 import { useRotatingIndex } from '../../hooks/useRotatingIndex';
-import { cn } from '../../lib/cn';
 import { Reveal, Stagger, StaggerItem } from '../animations';
-import { ButtonLink } from '../ui/Button';
-import { buttonStyles } from '../ui/buttonStyles';
 import Container from '../ui/Container';
 import DecryptedText from '../ui/DecryptedText';
 import IconLink from '../ui/IconLink';
@@ -73,34 +70,6 @@ export function Hero() {
                   {site.introHighlight}
                 </span>
               </p>
-            </Reveal>
-
-            <Reveal immediate delay={0.32}>
-              <div className="mt-9 flex flex-col items-stretch gap-3 sm:flex-row sm:items-center sm:justify-center lg:justify-start">
-                <ButtonLink
-                  href={site.resumeUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  download
-                  onClick={() => trackInteraction('resume_download', 'click')}
-                  size="lg"
-                >
-                  <FileText className="h-5 w-5" aria-hidden="true" />
-                  View Resume
-                </ButtonLink>
-
-                <Link
-                  to="contact"
-                  smooth
-                  offset={-96}
-                  duration={700}
-                  onClick={() => trackInteraction('hire_me_button', 'click')}
-                  className={cn(buttonStyles('outline', 'lg'), 'cursor-pointer')}
-                >
-                  <Briefcase className="h-5 w-5" aria-hidden="true" />
-                  Hire Me
-                </Link>
-              </div>
             </Reveal>
 
             <Reveal immediate delay={0.4}>
