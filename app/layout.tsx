@@ -31,7 +31,8 @@ export default function RootLayout({ children }: Readonly<RootLayoutProps>) {
           rel="stylesheet"
         />
       </head>
-      <body>
+      {/* Grammarly and other extensions can add body attributes before hydration. */}
+      <body suppressHydrationWarning>
         <AppProviders>
           <Layout>{children}</Layout>
         </AppProviders>
