@@ -1,6 +1,8 @@
-import { ChevronDown} from 'lucide-react';
+'use client';
+
+import Image from 'next/image';
+import { ChevronDown } from 'lucide-react';
 import { Link } from 'react-scroll';
-import profilePng from '../../assets/profile.png';
 import profileWebp from '../../assets/profile.webp';
 import { heroStats, site, socialLinks } from '../../data/site';
 import { useAnalytics } from '../../hooks/useAnalytics';
@@ -113,18 +115,15 @@ export function Hero() {
                 className="absolute -inset-6 rounded-full bg-brand-gradient opacity-25 blur-3xl transition-opacity duration-500 group-hover:opacity-40"
               />
               <div className="relative h-60 w-60 overflow-hidden rounded-full border border-white/10 bg-surface shadow-card sm:h-72 sm:w-72 lg:h-80 lg:w-80">
-                <picture>
-                  <source srcSet={profileWebp} type="image/webp" />
-                  <img
-                    src={profilePng}
-                    alt={site.name}
-                    width={760}
-                    height={760}
-                    loading="eager"
-                    decoding="async"
-                    className="h-full w-full object-cover object-top transition-transform duration-700 ease-out-expo group-hover:scale-105"
-                  />
-                </picture>
+                <Image
+                  src={profileWebp}
+                  alt={site.name}
+                  width={760}
+                  height={760}
+                  priority
+                  sizes="(min-width: 1024px) 320px, (min-width: 640px) 288px, 240px"
+                  className="h-full w-full object-cover object-top transition-transform duration-700 ease-out-expo group-hover:scale-105"
+                />
               </div>
               <div
                 aria-hidden="true"

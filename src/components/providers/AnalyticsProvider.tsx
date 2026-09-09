@@ -1,3 +1,5 @@
+'use client';
+
 import { useEffect, useRef } from 'react';
 import type { ReactNode } from 'react';
 import { trackPageView } from '../../lib/analytics';
@@ -8,7 +10,7 @@ interface AnalyticsProviderProps {
 
 /**
  * Records a single page view per session.
- * The Vercel Analytics script itself is injected once from main.tsx.
+ * The Vercel Analytics component itself is mounted once from app/layout.tsx.
  */
 export function AnalyticsProvider({ children }: AnalyticsProviderProps) {
   const hasTracked = useRef(false);

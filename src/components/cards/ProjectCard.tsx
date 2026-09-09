@@ -35,6 +35,8 @@ export function ProjectCard({ project, featured = false, priority = false }: Pro
         <OptimizedImage
           src={image}
           alt={`${title} preview`}
+          width={800}
+          height={500}
           priority={priority}
           sizes={featured ? '(min-width: 1024px) 46vw, 100vw' : '(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw'}
           wrapperClassName={cn(

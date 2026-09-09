@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/refs -- Keep the latest callback without recreating the observer. */
 import { useEffect, useRef } from 'react';
 
 /**

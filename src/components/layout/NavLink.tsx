@@ -1,3 +1,5 @@
+'use client';
+
 import { motion } from 'framer-motion';
 import { Link } from 'react-scroll';
 import { cn } from '../../lib/cn';

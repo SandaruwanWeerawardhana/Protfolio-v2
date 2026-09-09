@@ -1,5 +1,7 @@
-/* eslint-disable sonarjs/pseudo-random -- Math.random only shuffles the decorative
-   character scramble below; nothing security or fairness related depends on it. */
+'use client';
+
+/* eslint-disable react-hooks/set-state-in-effect, sonarjs/pseudo-random -- The existing
+   effect drives the scramble state machine, and Math.random only shuffles decorative text. */
 import { useEffect, useRef, useState } from 'react';
 import { useReducedMotion } from 'framer-motion';
 

@@ -1,3 +1,6 @@
+'use client';
+
+import Image from 'next/image';
 import { useState } from 'react';
 import { cn } from '../../lib/cn';
 
@@ -22,8 +25,8 @@ export function OptimizedImage({
   alt,
   className,
   wrapperClassName,
-  width,
-  height,
+  width = 800,
+  height = 500,
   priority = false,
   sizes,
 }: OptimizedImageProps) {
@@ -43,13 +46,13 @@ export function OptimizedImage({
           Image unavailable
         </div>
       ) : (
-        <img
+        <Image
           src={src}
           alt={alt}
           width={width}
           height={height}
           sizes={sizes}
-          loading={priority ? 'eager' : 'lazy'}
+          priority={priority}
           decoding={priority ? 'sync' : 'async'}
           onLoad={() => setStatus('loaded')}
           onError={() => setStatus('error')}

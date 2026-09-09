@@ -4,17 +4,11 @@ node_modules
 .pnp.js
 
 # Build output
+.next
+out
 dist
-dist-ssr
 build
-.vite
 *.local
-
-# Vite PWA generated
-dev-dist
-public/sw.js
-public/workbox-*.js
-public/registerSW.js
 
 # TypeScript incremental build info
 *.tsbuildinfo

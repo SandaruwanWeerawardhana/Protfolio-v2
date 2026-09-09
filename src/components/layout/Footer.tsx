@@ -1,3 +1,5 @@
+'use client';
+
 import { Link } from 'react-scroll';
 import { navItems, site, socialLinks } from '../../data/site';
 import Container from '../ui/Container';

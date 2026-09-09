@@ -1,3 +1,5 @@
+'use client';
+
 import { Link } from 'react-scroll';
 import { site } from '../../data/site';
 import { cn } from '../../lib/cn';

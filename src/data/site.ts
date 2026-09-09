@@ -4,9 +4,14 @@ import { projects } from './projects';
 import { skillCategories } from './skills';
 import type { NavItem, SocialLink } from '../types';
 
-/** Resolves a file inside /public against the configured Vite base path. */
-export const publicAsset = (path: string) =>
-  `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`;
+/** Resolves a file inside /public against the configured Next.js base path. */
+export const publicAsset = (path: string) => {
+  const basePath =
+    process.env.NODE_ENV === 'production'
+      ? (process.env.NEXT_PUBLIC_BASE_PATH ?? '/Portfolio').replace(/\/$/, '')
+      : '';
+  return `${basePath}/${path.replace(/^\//, '')}`;
+};
 
 export const site = {
   name: 'Sandaruwan Weerawardhana',

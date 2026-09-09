@@ -13,7 +13,7 @@ export const trackEvent = (eventName: string, properties?: AnalyticsProperties) 
   try {
     track(eventName, properties);
   } catch (error) {
-    if (import.meta.env.DEV) {
+    if (process.env.NODE_ENV === 'development') {
       console.error('Analytics tracking error:', error);
     }
   }

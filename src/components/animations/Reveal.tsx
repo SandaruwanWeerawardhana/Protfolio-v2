@@ -1,3 +1,5 @@
+'use client';
+
 import { motion, useReducedMotion } from 'framer-motion';
 import type { ReactNode } from 'react';
 import { easeOutExpo, viewportOnce } from './variants';
