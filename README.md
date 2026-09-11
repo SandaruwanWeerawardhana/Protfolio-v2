@@ -1,26 +1,21 @@
 # Portfolio - Sandaruwan Weerawardhana
 
-Single-page developer portfolio built with Next.js App Router, React, TypeScript, and Tailwind CSS. It is configured as a static export for GitHub Pages under the `/Portfolio/` base path.
+Single-page developer portfolio built with Next.js App Router, React, TypeScript, and Tailwind CSS. It is a static export deployed to GitHub Pages on the custom domain <https://sandaruwanweerawardhana.me>, served from the domain root (no base path).
 
 ```bash
 npm install
 npm run dev       # Next.js development server
 npm run build     # production static export (out/)
 npm run lint      # ESLint, Next.js, TypeScript, and SonarJS rules
-npm run deploy    # build + publish out/ with gh-pages
 ```
 
-The app is available locally at `http://localhost:3000/`. Production exports retain the `/Portfolio/` GitHub Pages base path.
+The app is available locally at `http://localhost:3000/`. Deployment is handled by `.github/workflows/deploy.yml` on every push to `main`; it uploads `out/` with `actions/upload-pages-artifact` and publishes with `actions/deploy-pages`.
 
 ## Environment
 
-Copy `.env.example` to `.env.local` when setting up a fresh checkout:
-
-```dotenv
-NEXT_PUBLIC_BASE_PATH=/Portfolio
-```
-
-`NEXT_PUBLIC_BASE_PATH` replaces Vite's built-in `BASE_URL` usage and is public because client components use links derived from it.
+No environment variables are required. The site is served from the apex custom
+domain root, so `next.config.ts` sets no `basePath` or `assetPrefix` and every
+asset resolves at `/`. `public/CNAME` pins the custom domain on each deploy.
 
 ## Project structure
 

@@ -6,7 +6,7 @@ import Projects from '../src/components/sections/Projects';
 import Skills from '../src/components/sections/Skills';
 import { site } from '../src/data/site';
 
-const canonicalUrl = 'https://SandaruwanWeerawardhana.github.io/Portfolio';
+const canonicalUrl = 'https://sandaruwanweerawardhana.me';
 const title = `${site.name} - ${site.role}`;
 const description = `Portfolio of ${site.name}, ${site.role} specializing in web development.`;
 

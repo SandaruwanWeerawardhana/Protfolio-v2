@@ -1,13 +1,9 @@
 import type { NextConfig } from 'next';
 
-const basePath =
-  process.env.NODE_ENV === 'production'
-    ? (process.env.NEXT_PUBLIC_BASE_PATH ?? '/Portfolio')
-    : '';
-
 const nextConfig: NextConfig = {
   output: 'export',
-  basePath,
+  // Served from the apex custom domain (https://sandaruwanweerawardhana.me),
+  // so assets live at the site root: no basePath / assetPrefix.
   trailingSlash: true,
   images: {
     // GitHub Pages cannot run the default server-side image optimizer.
